@@ -1,0 +1,31 @@
+= trunk =
+* Move footer JS to function call
+* Add in Web scanner logo
+* Clean out excess comments and spacing
+* 2 items on home
+* Increase mobile featured image height
+* Add why-purchase section
+* Revise price/buy positioning
+* Rename functions with aihrus_ prepend
+* Add pricing period to purchase buttons
+* Change $ 0 to free in purchase buttons
+* Add Clicktale heatmap tracking
+* Add FB and G+ social icons
+* Add comments and next/prev links to download screen
+* Add period pricing
+* Add related products
+* CSS for login state
+* Clean up profile form CSS
+* Clean up testimonial form CSS
+* Date format
+* Don't show author on testimonials
+* Download page edit link
+* Link archive headers to posts
+* Link to guest converter
+* Remove admin bar for non-admins
+* Remove purchase/downloads modals
+* Revise breadcrumb to separate h4/h1 titling
+* Show user, if any, on EDD Payment History
+* Single post efficient related posts off
+* To top link
+* h1/h2 titles

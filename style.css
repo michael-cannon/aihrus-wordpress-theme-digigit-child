@@ -1,0 +1,104 @@
+/*
+ * Theme: Digitit Child
+ * Template: digigit
+ * Author: Michael Cannon
+ * Author URI: http://aihr.us
+ */
+
+@import url( '../digigit/style.css' );
+
+.single-widget.widget .image,
+.widget.Testimonials_Widget_Widget .image {
+	float: left;
+}
+
+.alert-box.commentsclosed {
+	display: none;
+}
+
+#featured {
+	height: 300px !important;
+}
+
+#featured h4 {
+	margin-left: 0.5em;
+}
+
+#social [class*="social-"] {
+  display: block;
+}
+
+h1.title,
+h2.title {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+h2.title a {
+	color: inherit;
+}
+
+.breadc h1,
+.breadc h4 {
+	display: inline;
+}
+.logged-in-show,
+.logged-in .logged-in-hide {
+	display: none;
+}
+.logged-in .logged-in-show {
+	display: block;
+}
+.edd_form fieldset {
+	border: none;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.to-top p {
+	margin-top: 1em;
+}
+.to-top a {
+	font-weight: bold;
+}
+.content p a,
+.entry-content p a,
+.taxonomy-description p a {
+	text-decoration: underline;
+}
+table.form-table {
+	border: none;
+}
+table.form-table tbody tr:nth-child(even) {
+	background: none;
+}
+table.form-table tbody tr td {
+	padding-top: 0;
+}
+table.form-table label {
+	float: left;
+}
+table.form-table .required {
+	float: left;
+	padding-left: 3px;
+}
+.edd_price_options li {
+	list-style: none;
+}
+.why-purchase {
+	clear: both;
+	font-weight: bold;
+	padding-top: 0.5em;
+}
+.edd_price_options,
+.edd_purchase_submit_wrapper {
+	float: right;
+}
+.edd_price_options ul {
+	margin-bottom: 0.2em;
+}
+.productmeta .price {
+	margin-bottom: 0.5em;
+}
+.testimonials-widget-testimonial blockquote {
+	border-left: none;
+}

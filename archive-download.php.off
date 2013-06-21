@@ -1,0 +1,91 @@
+<?php
+/**
+ * @package Digigit
+ * @since Digigit 1.0
+ */
+
+get_header(); ?>
+
+<div class="row">
+
+	<div class="twelve columns">
+
+<?php if ( ! is_super_admin() ) : ?>
+<p>
+The Aihrus store is temporarily closed. Darn content encoding gremlins are eatting the Add to Cart button.
+</p>
+	</div><!-- .twelve.columns -->
+</div><!-- .row -->
+<?php get_footer(); ?>
+<?php exit(); ?>
+<?php endif; ?>
+		
+			<?php get_template_part( 'downloads', 'header' ); ?>
+			
+				<div class="row">
+				
+					<?php
+					$current_page = get_query_var('paged');
+					$per_page = 12;
+					$offset = $current_page > 0 ? $per_page * ($current_page-1) : 0;
+					$product_args = array(
+						'post_type' => 'download',
+						'posts_per_page' => $per_page,
+						'offset' => $offset
+					);
+					$products = new WP_Query($product_args);
+				
+					?>
+					
+					<?php $i = 1; ?>
+					
+						<?php while ($products->have_posts()) : $products->the_post(); ?>
+							
+							<?php
+							$threedownloads = of_get_option('digigit_threedownloads');
+							
+							if ( $threedownloads == '1' ) { ?>
+								
+								<div class="four columns">
+									<?php get_template_part( 'content', 'download' ); ?>
+								</div>
+							
+								<?php 
+									if( $i % 3 == 0 ) {
+										echo '</div><div class="row">';
+									}
+								?>
+								
+							<?php } else { ?>
+									
+								<div class="six columns">
+									<?php get_template_part( 'content', 'download' ); ?>
+								</div>
+							
+								<?php 
+									if( $i % 2 == 0 ) {
+										echo '</div><div class="row">';
+									}
+								?>	
+										
+							<?php } ?>
+							
+							<?php $i++; ?>
+						<?php endwhile; ?>
+						
+				</div>
+					
+					
+	
+		<div class="row pag">
+			<div class="twelve columns cent">
+				<?php digigit_content_nav( 'nav-below' ); ?>
+			</div><!-- .twelve.columns.cent -->
+		</div><!-- .row -->
+		
+		
+	</div><!-- .twelve.columns -->
+
+</div><!-- .row -->
+
+<?php get_footer(); ?>
