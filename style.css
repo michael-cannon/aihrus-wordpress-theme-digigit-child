@@ -102,3 +102,11 @@ table.form-table .required {
 .testimonials-widget-testimonial blockquote {
 	border-left: none;
 }
+
+.button-wrapper {
+	border: thick yellow dashed;
+	height: 9em;
+	margin: 1em;
+	padding: 1em;
+	text-align: right;
+}
