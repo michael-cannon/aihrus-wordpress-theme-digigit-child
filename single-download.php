@@ -114,7 +114,7 @@ get_header(); ?>
 		    			
 				
 <?php
-								if ( class_exists( 'Isa_EDD_Related_Downloads' ) ) {
+								if ( false && class_exists( 'Isa_EDD_Related_Downloads' ) ) {
 					global $Isa_EDD_Related_Downloads;
 $Isa_EDD_Related_Downloads->isa_after_download_content();
 								}
