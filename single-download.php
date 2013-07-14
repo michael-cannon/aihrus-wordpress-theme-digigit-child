@@ -87,6 +87,8 @@ get_header(); ?>
 
 		    			
 		    			
+		    	<?php echo do_shortcode( '[fb layout=button_count send=true]' ); ?>
+		    	<?php echo do_shortcode( '[p1]' ); ?>
 		    	<?php the_content(); ?>
 		    	<?php echo do_shortcode( '[fb layout=button_count send=true]' ); ?>
 		    	<?php echo do_shortcode( '[p1]' ); ?>
