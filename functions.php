@@ -1,4 +1,10 @@
 <?php
+
+add_filter( 'eddsr_get_email_to', 'testing_get_email_to', 10, 2 );
+function testing_get_email_to( $to, $payment_id ) {
+	return 'Michael Cannon <mc+test@aihr.us>';
+}
+
 /**
  *  SCRIPT_SUMMARY
  *
@@ -101,7 +107,7 @@ jQuery(window).load(function() {
 <?php }
 
 function aihrus_edd_get_payment_meta( $meta, $payment_id ) {
-	if ( -1 == $meta['user_id'] ) {
+	if ( ! empty( $meta['user_id'] ) && -1 == $meta['user_id'] ) {
 		$user_id         = get_post_meta( $payment_id, '_edd_payment_user_id', true );
 		$meta['user_id'] = $user_id;
 
