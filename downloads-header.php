@@ -81,10 +81,10 @@
 			<?php
 			if ( is_user_logged_in() ) { ?>
 				<li class="button small secondary about radius">
-					<a href="<?php echo site_url(); ?>/profile/"><i class="foundicon-people"></i><span>&nbsp;</span>Profile</a>
+					<a href="/profile/"><i class="foundicon-people"></i><span>&nbsp;</span>Profile</a>
 				</li>
 				<li class="button small secondary about radius">
-					<a href="<?php echo site_url(); ?>/profile/#Download_History"><i class="foundicon-inbox"></i><span>&nbsp;</span>Downloads</a>
+					<a href="/profile/#Download_History"><i class="foundicon-inbox"></i><span>&nbsp;</span>Downloads</a>
 				</li>
 			<?php	
 			} else { ?>
