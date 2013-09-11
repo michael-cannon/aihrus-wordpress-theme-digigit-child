@@ -42,7 +42,7 @@ get_header(); ?>
 				
 					<?php
 					$current_page = get_query_var('paged');
-					$per_page = 2;
+					$per_page = 3;
 					$offset = $current_page > 0 ? $per_page * ($current_page-1) : 0;
 					$product_args = array(
 						'post_type' => 'download',
@@ -58,7 +58,7 @@ get_header(); ?>
 					
 						<?php while ($products->have_posts()) : $products->the_post(); ?>
 							
-								<div class="six columns">
+								<div class="four columns">
 									<?php get_template_part( 'content', 'download' ); ?>
 								</div>
 							

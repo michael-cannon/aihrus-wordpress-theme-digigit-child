@@ -14,8 +14,6 @@
 				
 				/ 
 				
-				</h4>
-				<h1>
 				<?php
 					if ( is_post_type_archive( 'download' ) ) {
 						echo post_type_archive_title();
@@ -38,7 +36,7 @@
 					}
 				?>
 				 
-				</h1>
+				</h4>
 				
 		</div>
 	
