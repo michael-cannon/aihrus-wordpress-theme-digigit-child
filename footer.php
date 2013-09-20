@@ -157,7 +157,6 @@
 	    echo '</a></p><a class="close-reveal-modal">&#215;</a></div>';
 ?>
 
-<?php aihrus_wp_footer(); ?>
 <?php wp_footer(); ?>
 </body>
 </html>

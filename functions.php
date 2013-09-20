@@ -1,9 +1,12 @@
 <?php
 
-add_filter( 'eddsr_get_email_to', 'testing_get_email_to', 10, 2 );
+// add_filter( 'eddsr_get_email_to', 'testing_get_email_to', 10, 2 );
 function testing_get_email_to( $to, $payment_id ) {
 	return 'Michael Cannon <mc+test@aihr.us>';
 }
+
+add_image_size( 'product-image', 255, 194, true );
+add_image_size ( 'digigit-home-featured', 855, 349, true );
 
 /**
  *  SCRIPT_SUMMARY
@@ -121,10 +124,13 @@ function aihrus_edd_get_payment_meta( $meta, $payment_id ) {
 add_filter( 'edd_get_payment_meta', 'aihrus_edd_get_payment_meta', 10, 2 );
 
 function aihrus_init() {
-	if ( ! is_super_admin() ) {
+	if ( ! is_super_admin() )
 		show_admin_bar( false );
-	}
+
+	aihrus_scripts();
+	aihrus_styles();
 }
+
 add_action( 'init', 'aihrus_init' );
 remove_action( 'wp_head', 'wp_admin_bar_header' );
 
@@ -150,54 +156,63 @@ function aihrus_edd_purchase_download_form( $purchase_form, $args ) {
 	return $purchase_form;
 }
 
+function aihrus_scripts() {
+	wp_register_script( 'clicktale', get_stylesheet_directory_uri() . '/js/WRe0.js' );
+	wp_enqueue_script( 'clicktale' );
+
+	wp_register_script( 'zenbox', get_stylesheet_directory_uri() . '/js/zenbox.js' );
+	wp_enqueue_script( 'zenbox' );
+}
+
+
+function aihrus_styles() {
+	wp_register_style( 'zenbox', get_stylesheet_directory_uri() . '/css/zenbox.css' );
+	wp_enqueue_style( 'zenbox' );
+}
+
 
 function aihrus_wp_footer() {
+	$url = get_stylesheet_directory_uri();
+
 	echo <<<EOD
 <!-- Zendesk support -->
-		<script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.6/zenbox.js"></script>
-		<style type="text/css" media="screen, projection">
-			@import url(//assets.zendesk.com/external/zenbox/v2.6/zenbox.css);
-		</style>
-			<script type="text/javascript">
-		if (typeof(Zenbox) !== "undefined") {
-			Zenbox.init({
-				dropboxID:   "20182507",
-					url:         "https://aihrus.zendesk.com",
-					tabTooltip:  "Need Help?",
-					tabImageURL: "https://assets.zendesk.com/external/zenbox/images/tab_ask_us_right.png",
-					tabColor:    "#ff0000",
-					tabPosition: "Right"
-			});
-		}
-		</script>
+<script type="text/javascript">
+	if (typeof(Zenbox) !== "undefined") {
+		Zenbox.init({
+			dropboxID:   "20182507",
+			url:         "https://aihrus.zendesk.com",
+			tabTooltip:  "Need Help?",
+			tabImageURL: "{$url}/media/tab_ask_us_right.png",
+			tabColor:    "#ff0000",
+			tabPosition: "Right"
+		});
+	}
+</script>
+<!-- end Zendesk support -->
 
 <!-- Google Analytics Code -->
-		<script type="text/javascript">
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-20956818-1']);
+	_gaq.push(['_trackPageview']);
 
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-20956818-1']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-
-		</script>
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- end Google Analytics Code -->
 
 <!-- ClickTale Bottom part -->
 <div id="ClickTaleDiv" style="display: none;"></div>
-		<script type="text/javascript">
-		if(document.location.protocol!='https:')
-			document.write(unescape("%3Cscript%20src='http://s.clicktale.net/WRe0.js'%20type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-		if(typeof ClickTale=='function') ClickTale(6494,0.225,"www08");
-		</script>
+<script type="text/javascript">
+	if(typeof ClickTale=='function') ClickTale(6494,0.225,"www08");
+</script>
 <!-- ClickTale end of Bottom part -->
+
 EOD;
 }
-// add_action( 'wp_footer', 'aihrus_wp_footer', 20 );
+add_action( 'wp_footer', 'aihrus_wp_footer', 20 );
 
 ?>
