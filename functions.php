@@ -5,9 +5,6 @@ function testing_get_email_to( $to, $payment_id ) {
 	return 'Michael Cannon <mc+test@aihr.us>';
 }
 
-add_image_size( 'product-image', 255, 194, true );
-add_image_size ( 'digigit-home-featured', 855, 349, true );
-
 /**
  *  SCRIPT_SUMMARY
  *
@@ -127,6 +124,8 @@ function aihrus_init() {
 	if ( ! is_super_admin() )
 		show_admin_bar( false );
 
+	add_image_size ( 'digigit-home-featured', 855, 349, true );
+	add_image_size( 'product-image', 255, 194, true );
 	aihrus_scripts();
 	aihrus_styles();
 }
