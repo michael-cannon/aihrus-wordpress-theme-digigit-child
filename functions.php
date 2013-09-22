@@ -125,7 +125,7 @@ function aihrus_init() {
 		show_admin_bar( false );
 
 	add_image_size ( 'digigit-home-featured', 855, 349, true );
-	add_image_size( 'product-image', 255, 194, true );
+	// add_image_size( 'product-image', 255, 194, true );
 	aihrus_scripts();
 	aihrus_styles();
 }
