@@ -28,7 +28,7 @@
 				<a href="<?php the_permalink(); ?>">
 					<?php
 						if ( has_post_thumbnail() ) {
-						    echo the_post_thumbnail('product-image', array('class' => 'image') );
+						    echo the_post_thumbnail('medium', array('class' => 'image') );
 						}
 						else { // make following image changable in theme options
 						    echo '<img src="' . get_template_directory_uri() . '/images/nopic.jpg" />';

@@ -29,7 +29,7 @@ get_header(); ?>
 				
 					<?php
 						if ( has_post_thumbnail() ) {
-							echo the_post_thumbnail( 'product-image' );
+							echo the_post_thumbnail( 'large' );
 						}
 						else {
 							echo '<img src="' . get_template_directory_uri() . '/images/nopic-big.jpg" />';
